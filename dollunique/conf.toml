@@ -1,0 +1,11 @@
+#title = "DollUnique Toml"
+
+[rpc]
+host = "192.168.0.163:8500"
+
+[logger]
+file_path = "/var/ff_log/DollUnique/"
+
+[redis]
+host = "192.168.0.25:6379"
+auth = ""

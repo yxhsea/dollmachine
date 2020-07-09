@@ -1,0 +1,4 @@
+package: dollmachine/dollunique
+import:
+- package: github.com/micro/go-micro
+  version: ~0.9.0

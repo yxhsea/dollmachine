@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package go.micro.srv.unique_id;
+
+message UniqueIdRequest {
+    string key = 1;
+}
+
+message UniqueIdResponse {
+    int64 value = 1;
+}
+
+service GenerateUniqueId {
+    rpc GenerateUniqueId(UniqueIdRequest) returns (UniqueIdResponse) {}
+}

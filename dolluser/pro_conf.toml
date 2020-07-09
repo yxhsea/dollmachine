@@ -1,0 +1,25 @@
+#title = "DollUser Toml"
+
+[http]
+host = "0.0.0.0:9554"
+
+[logger]
+file_path = "/var/ff_log/DollUser/"
+
+[redis]
+host = "192.168.0.25:6379"
+auth = ""
+
+[mysql]
+host = "192.168.0.163"
+port = "3306"
+user = "root"
+password = "1234"
+dbname = "dollmachine"
+charset = "utf8mb4"
+poolnum = 300
+
+[fuyou]
+order_prefix = 11421
+notify_esp_url = "https://wawafront.tunnel.aioil.cn/dev/usr/v1/pay/express/notify"
+notify_url = "https://wawafront.tunnel.aioil.cn/dev/usr/v1/pay/express/notify"

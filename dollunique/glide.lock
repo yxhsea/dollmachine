@@ -1,0 +1,6 @@
+hash: 1718927f1b616eac56e96cfd7a365afa243d69703f04772ea5c7eb398c77b8af
+updated: 2018-06-21T10:35:29.9106468+08:00
+imports:
+- name: github.com/micro/go-micro
+  version: 5372707d0ec1ebd736bec36818ddb2e700606589
+testImports: []

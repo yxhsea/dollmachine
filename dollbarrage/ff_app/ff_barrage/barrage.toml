@@ -1,0 +1,24 @@
+#title = "DollBarrage Toml"
+
+[http]
+host = "0.0.0.0:9555"
+
+[web_socket]
+read_buffer = 1024
+write_buffer = 1024
+
+[logger]
+file_path = "/var/ff_log/DollBarrage/"
+
+[redis]
+host = "192.168.0.25:6379"
+auth = ""
+
+[mysql]
+host = "192.168.0.25"
+port = "3306"
+user = "dlwriter"
+password = "dlwriter"
+dbname = "th_dlmachine"
+charset = "utf8mb4"
+poolnum = 300

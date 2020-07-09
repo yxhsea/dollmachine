@@ -1,0 +1,27 @@
+#title = "Pro Mqtt Toml"
+
+[database]
+host = "192.168.0.27"
+port = "3306"
+user = "root"
+password = "1234"
+dbname = "dollmachine"
+charset = "utf8mb4"
+poolnum = 300
+
+[cache]
+host = "192.168.0.27:6379"
+auth = "dollmachine"
+poolnum = 30
+
+[logger]
+file_path = "/var/ff_log/DollMqtt/"
+
+[mqtt_sub]
+broker = "tcp://192.168.0.27:1883"
+user = ""
+password = ""
+client_id = "doll_mqtt_pro_27"
+store = ":memory:"
+topic = "pro/wawaji/hrtpkg"
+qos = 2

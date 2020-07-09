@@ -1,0 +1,13 @@
+package: dollmachine/dollbarrage
+import:
+- package: github.com/spf13/cobra
+  version: ~0.0.3
+- package: github.com/spf13/viper
+  version: ~1.0.2
+- package: github.com/gin-gonic/gin
+  version: ~1.2.0
+- package: github.com/gorilla/websocket
+  version: ~1.2.0
+- package: github.com/sirupsen/logrus
+  version: ~1.0.5
+- package: github.com/BlueSimle/logcutting

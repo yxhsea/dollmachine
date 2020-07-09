@@ -1,0 +1,30 @@
+#title = "wechat Toml"
+
+[database]
+host = "192.168.0.27"
+port = "3306"
+user = "root"
+password = "1234"
+dbname = "dollmachine"
+charset = "utf8mb4"
+poolnum = 300
+
+[cache]
+host = "192.168.0.27:6379"
+auth = "dollmachine"
+poolnum = 30
+
+[logger]
+file_path = "/var/ff_log/DollWechat/"
+
+[wechat]
+wx_mp_appid = ""
+wx_mp_appsecret = ""
+wx_ori_id = ""
+wx_token = ""
+wx_encoded_aes_key = ""
+
+[rest]
+mode = "pro"
+host = ":9224"
+timeout = 30

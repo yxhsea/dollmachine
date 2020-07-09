@@ -1,0 +1,56 @@
+package ff_res
+
+const ErrorCode1TypeInvalidRequestErr = "invalid-request-error."
+const ErrorCode1TypePlatformApiErr = "platform-api-error."
+const ErrorCode1TypeThirdApiErr = "third-api-error."
+
+const ErrorCode2TypeInvalidParameter = "invalid-parameter."
+const ErrorCode2TypeInvalidPermission = "invalid-permission."
+const ErrorCode2TypeUnknownError = "unknown-error."
+const ErrorCode2TypeRemoteServiceError = "remote-service-error."
+const ErrorCode2TypeSqlError = "sql-error."
+const ErrorCode2TypeCacheError = "cache-error."
+const ErrorCode2TypeServiceError = "service-error."
+
+const ErrorCode3TypeNotEnough = "not-enough."
+const ErrorCode3TypeTooLarge = "too-large."
+const ErrorCode3TypeNotMatch = "not-match."
+const ErrorCode3TypeNotExist = "not-exist."
+const ErrorCode3TypeDuplicateEntry = "duplicate-entry."
+const ErrorCode3TypeSyntaxError = "syntax-error."
+const ErrorCode3TypeCallLimited = "call-limited."
+const ErrorCode3TypeUnexpectedStatus = "unexpected-status."
+const ErrorCode3TypeConnectionError = "connection-error."
+const ErrorCode3TypeRequestError = "request-error."
+const ErrorCode3TypeParseError = "parse-error."
+const ErrorCode3TypeUnexpectedError = "unexpected-error."
+const ErrorCode3TypeSystemBusy = "system-busy."
+const ErrorCode3TypeServiceUnavailable = "service-unavailable."
+
+const ErrorCode0ServiceError int64 = 10000
+const ErrorCode0ServiceMethodNotAllowedError int64 = 10100
+const ErrorCode0ServiceMethodNotFoundError int64 = 10200
+const ErrorCode0ServiceDuplicatedEntryError int64 = 20100
+
+const ErrorMsgUnknownError = "发生未知错误，请稍后重试"
+const ErrorMsgDBSelectError = "数据库繁忙，请稍后重试"
+const ErrorMsgCacheError = "数据库繁忙，请稍后重试"
+const ErrorMsgNotExistError = "不存在"
+const ErrorMsgNotEnoughError = "不足"
+const ErrorMsgTooLargeError = "太大"
+const ErrorMsgNotMatchError = "不匹配"
+const ErrorMsgDuplicateEntryError = "已存在"
+const ErrorMsgParameterError = "参数有误，请提交正确内容重试"
+const ErrorMsgThirdServiceError = "第三方服务异常，请稍后重试"
+const ErrorMsgThirdStatusError = "第三方服务状态异常，请提交正确内容重试"
+const ErrorMsgMethodNotAllowedError = "不允许访问"
+const ErrorMsgPermissionError = "没有权限，不允许访问"
+const ErrorMsgSignNotMatchError = "密钥不匹配，请重新计算后访问"
+const ErrorMsgSignTimeOverError = "ST已过期，请重新计算后访问"
+const ErrorMsgSessionMissError = "请登录后再访问"
+const ErrorMsgAuthNeedChangePasswordError = "密码过期，请修改密码"
+const ErrorMsgMerchantStatusError = "商户状态异常，拒绝登录，请联系管理员"
+const ErrorMsgPasswordError = "密码错误"
+const ErrorMsgOldPasswordError = "原密码错误"
+const ErrorMsgLoginTokenExistError = "登录账号loginToken已经存在"
+const ErrorMsgLoginTokenNotExistError = "登录账号loginToken不存在"

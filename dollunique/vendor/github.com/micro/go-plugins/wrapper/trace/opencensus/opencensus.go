@@ -1,0 +1,165 @@
+// Package opencensus provides wrappers for OpenCensus tracing.
+package opencensus
+
+import (
+	"context"
+	"encoding/base64"
+	"fmt"
+
+	"github.com/micro/go-log"
+	"github.com/micro/go-micro/client"
+	"github.com/micro/go-micro/metadata"
+	"github.com/micro/go-micro/server"
+
+	"go.opencensus.io/trace"
+	"go.opencensus.io/trace/propagation"
+)
+
+const (
+	// TracePropagationField is the key for the tracing context
+	// that will be injected in go-micro's metadata.
+	TracePropagationField = "X-Trace-Context"
+)
+
+// clientWrapper wraps an RPC client and adds tracing.
+type clientWrapper struct {
+	client.Client
+}
+
+func injectTraceIntoCtx(ctx context.Context, span *trace.Span) context.Context {
+	md, ok := metadata.FromContext(ctx)
+	if !ok {
+		md = make(map[string]string)
+	}
+
+	spanCtx := propagation.Binary(span.SpanContext())
+	md[TracePropagationField] = base64.RawStdEncoding.EncodeToString(spanCtx)
+
+	return metadata.NewContext(ctx, md)
+}
+
+// Call implements client.Client.Call.
+func (w *clientWrapper) Call(
+	ctx context.Context,
+	req client.Request,
+	rsp interface{},
+	opts ...client.CallOption) (err error) {
+	t := newRequestTracker(req, ClientProfile)
+	ctx = t.start(ctx, true)
+
+	defer func() { t.end(ctx, err) }()
+
+	ctx = injectTraceIntoCtx(ctx, t.span)
+
+	err = w.Client.Call(ctx, req, rsp, opts...)
+	return
+}
+
+// Publish implements client.Client.Publish.
+func (w *clientWrapper) Publish(ctx context.Context, p client.Message, opts ...client.PublishOption) (err error) {
+	t := newPublicationTracker(p, ClientProfile)
+	ctx = t.start(ctx, true)
+
+	defer func() { t.end(ctx, err) }()
+
+	ctx = injectTraceIntoCtx(ctx, t.span)
+
+	err = w.Client.Publish(ctx, p, opts...)
+	return
+}
+
+// NewClientWrapper returns a client.Wrapper
+// that adds monitoring to outgoing requests.
+func NewClientWrapper() client.Wrapper {
+	return func(c client.Client) client.Client {
+		return &clientWrapper{c}
+	}
+}
+
+func getTraceFromCtx(ctx context.Context) *trace.SpanContext {
+	md, ok := metadata.FromContext(ctx)
+	if !ok {
+		md = make(map[string]string)
+	}
+
+	encodedTraceCtx, ok := md[TracePropagationField]
+	if !ok {
+		return nil
+	}
+
+	traceCtxBytes, err := base64.RawStdEncoding.DecodeString(encodedTraceCtx)
+	if err != nil {
+		log.Logf("Could not decode trace context: %s", err.Error())
+		return nil
+	}
+
+	spanCtx, ok := propagation.FromBinary(traceCtxBytes)
+	if !ok {
+		log.Log("Could not decode trace context from binary")
+		return nil
+	}
+
+	return &spanCtx
+}
+
+// NewHandlerWrapper returns a server.HandlerWrapper
+// that adds tracing to incoming requests.
+func NewHandlerWrapper() server.HandlerWrapper {
+	return func(fn server.HandlerFunc) server.HandlerFunc {
+		return func(ctx context.Context, req server.Request, rsp interface{}) (err error) {
+			t := newRequestTracker(req, ServerProfile)
+			ctx = t.start(ctx, false)
+
+			defer func() { t.end(ctx, err) }()
+
+			spanCtx := getTraceFromCtx(ctx)
+			if spanCtx != nil {
+				t.span = trace.NewSpanWithRemoteParent(
+					fmt.Sprintf("rpc/%s/%s/%s", ServerProfile.Role, req.Service(), req.Method()),
+					*spanCtx,
+					trace.StartOptions{},
+				)
+				ctx = trace.WithSpan(ctx, t.span)
+			} else {
+				ctx, t.span = trace.StartSpan(
+					ctx,
+					fmt.Sprintf("rpc/%s/%s/%s", ServerProfile.Role, req.Service(), req.Method()),
+				)
+			}
+
+			err = fn(ctx, req, rsp)
+			return
+		}
+	}
+}
+
+// NewSubscriberWrapper returns a server.SubscriberWrapper
+// that adds tracing to subscription requests.
+func NewSubscriberWrapper() server.SubscriberWrapper {
+	return func(fn server.SubscriberFunc) server.SubscriberFunc {
+		return func(ctx context.Context, p server.Message) (err error) {
+			t := newPublicationTracker(p, ServerProfile)
+			ctx = t.start(ctx, false)
+
+			defer func() { t.end(ctx, err) }()
+
+			spanCtx := getTraceFromCtx(ctx)
+			if spanCtx != nil {
+				t.span = trace.NewSpanWithRemoteParent(
+					fmt.Sprintf("rpc/%s/pubsub/%s", ServerProfile.Role, p.Topic()),
+					*spanCtx,
+					trace.StartOptions{},
+				)
+				ctx = trace.WithSpan(ctx, t.span)
+			} else {
+				ctx, t.span = trace.StartSpan(
+					ctx,
+					fmt.Sprintf("rpc/%s/pubsub/%s", ServerProfile.Role, p.Topic()),
+				)
+			}
+
+			err = fn(ctx, p)
+			return
+		}
+	}
+}

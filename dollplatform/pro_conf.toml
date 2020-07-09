@@ -1,0 +1,23 @@
+#title = "DollPlatform Toml"
+
+[rpc]
+host = "192.168.0.163:8500"
+
+[http]
+host = "0.0.0.0:9556"
+
+[logger]
+file_path = "/var/ff_log/DollPlatform/"
+
+[redis]
+host = "192.168.0.25:6379"
+auth = ""
+
+[mysql]
+host = "192.168.0.163"
+port = "3306"
+user = "root"
+password = "1234"
+dbname = "dollmachine"
+charset = "utf8mb4"
+poolnum = 300

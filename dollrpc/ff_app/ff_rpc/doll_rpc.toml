@@ -1,0 +1,9 @@
+#title = "DollRpc Toml"
+
+[rpc]
+host = ":9225"
+timeout = 30
+allow_ip = "192.168.1.234,192.168.1.47,192.168.2.0,127.0.0.1"
+
+[logger]
+file_path = "/var/ff_log/DollRpc/"

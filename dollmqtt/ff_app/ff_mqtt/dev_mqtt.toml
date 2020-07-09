@@ -1,0 +1,28 @@
+#title = "Dev Mqtt Toml"
+
+[database]
+host = "192.168.0.163"
+port = "3306"
+user = "root"
+password = "1234"
+dbname = "dollmachine"
+charset = "utf8mb4"
+poolnum = 30
+
+[cache]
+host = "192.168.0.25:6379"
+auth = ""
+poolnum = 30
+
+[logger]
+file_path = "/var/ff_log/DollMqtt/"
+
+[mqtt_sub]
+broker = "tcp://ip.tunnel.aioil.cn:1883"
+#broker = "tcp://192.168.0.30:1883"
+user = ""
+password = ""
+client_id = "doll_mqtt"
+store = ":memory:"
+topic = "dev/wawaji/hrtpkg"
+qos = 2

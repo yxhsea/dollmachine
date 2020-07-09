@@ -1,0 +1,4 @@
+package: gogs.yetanotherpay.tk/yxhsea/DMRpc
+import:
+- package: github.com/spf13/cobra
+  version: ~0.0.2

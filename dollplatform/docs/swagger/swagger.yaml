@@ -1,0 +1,459 @@
+basePath: /dev/plf/v1
+host: 192.168.0.167:9556
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: 娃娃机运营平台 Api文档
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: 娃娃机运营平台 Api文档
+  version: "1.0"
+paths:
+  /dev_type/add:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 设备类型名称
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 新增设备类型
+      tags:
+      - deviceType
+  /dev_type/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 设备类型ID
+        in: query
+        name: device_type_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取设备类型
+      tags:
+      - deviceType
+  /dev_type/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取设备类型列表
+      tags:
+      - deviceType
+  /dev_type/upd:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 设备类型ID
+        in: formData
+        name: device_type_id
+        required: true
+        type: string
+      - description: 设备类型名称
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新商户
+      tags:
+      - deviceType
+  /login/sign_in:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: 登录账号
+        in: formData
+        name: login_token
+        required: true
+        type: string
+      - description: 登录密码
+        in: formData
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 登录授权
+      tags:
+      - login
+  /login/sign_out:
+    get:
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 注销登录
+      tags:
+      - login
+  /mch/add:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 商户名称
+        in: formData
+        name: mch_name
+        required: true
+        type: string
+      - description: 省份或直辖市
+        in: formData
+        name: province
+        required: true
+        type: string
+      - description: 城市
+        in: formData
+        name: city
+        required: true
+        type: string
+      - description: 地区
+        in: formData
+        name: district
+        required: true
+        type: string
+      - description: 详细地址
+        in: formData
+        name: address
+        required: true
+        type: string
+      - description: 充值分成比例
+        in: formData
+        name: recharge_rate
+        required: true
+        type: string
+      - description: 积分兑换比例
+        in: formData
+        name: integral_convert_rate
+        required: true
+        type: string
+      - description: 积分分成比例
+        in: formData
+        name: integral_rate
+        required: true
+        type: string
+      - description: 商户对接人姓名
+        in: formData
+        name: contact_name
+        required: true
+        type: string
+      - description: 商户对接人联系电话
+        in: formData
+        name: contact_phone
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 新增商户
+      tags:
+      - merchant
+  /mch/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 商户ID
+        in: query
+        name: merchant_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取商户信息
+      tags:
+      - merchant
+  /mch/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取商户列表
+      tags:
+      - merchant
+  /mch/pwd:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 商户ID
+        in: formData
+        name: merchant_id
+        required: true
+        type: string
+      - description: 登录密码
+        in: formData
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新商户密码
+      tags:
+      - merchant
+  /mch/state:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 商户ID
+        in: formData
+        name: merchant_id
+        required: true
+        type: string
+      - description: 状态 0|禁用 1|正常
+        in: formData
+        name: status
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新商户状态
+      tags:
+      - merchant
+  /mch/upd:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 商户ID
+        in: formData
+        name: merchant_id
+        required: true
+        type: string
+      - description: 商户名称
+        in: formData
+        name: mch_name
+        required: true
+        type: string
+      - description: 省份或直辖市
+        in: formData
+        name: province
+        required: true
+        type: string
+      - description: 城市
+        in: formData
+        name: city
+        required: true
+        type: string
+      - description: 地区
+        in: formData
+        name: district
+        required: true
+        type: string
+      - description: 详细地址
+        in: formData
+        name: address
+        required: true
+        type: string
+      - description: 充值分成比例
+        in: formData
+        name: recharge_rate
+        required: true
+        type: string
+      - description: 积分兑换比例
+        in: formData
+        name: integral_convert_rate
+        required: true
+        type: string
+      - description: 积分分成比例
+        in: formData
+        name: integral_rate
+        required: true
+        type: string
+      - description: 商户对接人姓名
+        in: formData
+        name: contact_name
+        required: true
+        type: string
+      - description: 商户对接人联系电话
+        in: formData
+        name: contact_phone
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新商户
+      tags:
+      - merchant
+  /test/info:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Test
+        in: formData
+        name: test
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 测试专用
+      tags:
+      - test
+swagger: "2.0"

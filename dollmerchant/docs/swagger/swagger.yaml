@@ -1,0 +1,1969 @@
+basePath: /dev/mch/v1
+host: 192.168.0.167:9555
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: 娃娃机商户平台 Api文档
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: 娃娃机商户平台 Api文档
+  version: "1.0"
+paths:
+  /dev_type/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 设备类型ID
+        in: query
+        name: device_type_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取设备类型
+      tags:
+      - DeviceType
+  /dev_type/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取设备类型列表
+      tags:
+      - DeviceType
+  /device/bind:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 设备Mac地址
+        in: formData
+        name: device_mac
+        required: true
+        type: string
+      - description: 设备名称
+        in: formData
+        name: device_name
+        required: true
+        type: string
+      - description: 设备类型ID
+        in: formData
+        name: device_type_id
+        required: true
+        type: integer
+      - description: 设备类型名称
+        in: formData
+        name: device_type_name
+        required: true
+        type: string
+      - description: 投放地点ID
+        in: formData
+        name: place_id
+        required: true
+        type: integer
+      - description: 投放地点名称
+        in: formData
+        name: place_name
+        required: true
+        type: string
+      - description: 礼品ID
+        in: formData
+        name: gift_id
+        required: true
+        type: integer
+      - description: 礼品名称
+        in: formData
+        name: gift_name
+        required: true
+        type: string
+      - description: 礼品库存
+        in: formData
+        name: gift_stock
+        required: true
+        type: integer
+      - description: 中奖概率
+        in: formData
+        name: rate
+        required: true
+        type: integer
+      - description: 设备场景值  1|线上 2|线下
+        in: formData
+        name: line
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 绑定设备
+      tags:
+      - Device
+  /device/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 设备ID
+        in: query
+        name: device_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取设备
+      tags:
+      - Device
+  /device/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取设备列表
+      tags:
+      - Device
+  /device/unbind:
+    delete:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 设备ID
+        in: formData
+        name: device_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 解绑设备
+      tags:
+      - Device
+  /device/upd:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 设备ID地址
+        in: formData
+        name: device_id
+        required: true
+        type: string
+      - description: 设备名称
+        in: formData
+        name: device_name
+        required: true
+        type: string
+      - description: 设备类型ID
+        in: formData
+        name: device_type_id
+        required: true
+        type: integer
+      - description: 设备类型名称
+        in: formData
+        name: device_type_name
+        required: true
+        type: string
+      - description: 投放地点ID
+        in: formData
+        name: place_id
+        required: true
+        type: integer
+      - description: 投放地点名称
+        in: formData
+        name: place_name
+        required: true
+        type: string
+      - description: 礼品ID
+        in: formData
+        name: gift_id
+        required: true
+        type: integer
+      - description: 礼品名称
+        in: formData
+        name: gift_name
+        required: true
+        type: string
+      - description: 礼品库存
+        in: formData
+        name: gift_stock
+        required: true
+        type: integer
+      - description: 中奖概率
+        in: formData
+        name: rate
+        required: true
+        type: integer
+      - description: 设备场景值  1|线上 2|线下
+        in: formData
+        name: line
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新设备
+      tags:
+      - Device
+  /flow/record/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      - description: 用户ID
+        in: query
+        name: user_id
+        required: true
+        type: string
+      - description: 类型 0|全部 1|充值 2|积分兑换 3|运费支付 4|游戏消耗
+        in: query
+        name: type
+        required: true
+        type: string
+      - description: 时间范围
+        in: query
+        name: time
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取流水列表
+      tags:
+      - FlowRecord
+  /gift/add:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 礼品名称
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 新增礼品
+      tags:
+      - Gift
+  /gift/del:
+    delete:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 礼品ID
+        in: formData
+        name: gift_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除礼品
+      tags:
+      - Gift
+  /gift/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 礼品ID
+        in: query
+        name: gift_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取礼品
+      tags:
+      - Gift
+  /gift/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取礼品列表
+      tags:
+      - Gift
+  /gift/upd:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 礼品ID
+        in: formData
+        name: gift_id
+        required: true
+        type: string
+      - description: 礼品名称
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新礼品
+      tags:
+      - Gift
+  /gift_type/add:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 礼品类型名称
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 新增礼品类型
+      tags:
+      - GiftType
+  /gift_type/del:
+    delete:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 礼品类型ID
+        in: formData
+        name: gift_type_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除礼品类型
+      tags:
+      - GiftType
+  /gift_type/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 礼品类型ID
+        in: query
+        name: gift_type_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取礼品类型
+      tags:
+      - GiftType
+  /gift_type/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取礼品类型列表
+      tags:
+      - GiftType
+  /gift_type/upd:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 礼品类型ID
+        in: formData
+        name: gift_type_id
+        required: true
+        type: string
+      - description: 礼品类型名称
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新礼品类型
+      tags:
+      - GiftType
+  /login/sign_in:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: 登录账号
+        in: formData
+        name: login_token
+        required: true
+        type: string
+      - description: 登录密码
+        in: formData
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 登录授权
+      tags:
+      - Login
+  /login/sign_out:
+    get:
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 注销登录
+      tags:
+      - Login
+  /login/wx_sign:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: 签名URL
+        in: formData
+        name: url
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 微信签名
+      tags:
+      - Login
+  /mch/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 商户ID
+        in: query
+        name: merchant_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取商户信息
+      tags:
+      - Merchant
+  /notice/add:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 公告名称
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 新增公告
+      tags:
+      - Notice
+  /notice/del:
+    delete:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 公告ID
+        in: formData
+        name: Notice_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除公告
+      tags:
+      - Notice
+  /notice/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 公告ID
+        in: query
+        name: Notice_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取公告
+      tags:
+      - Notice
+  /notice/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取公告列表
+      tags:
+      - Notice
+  /notice/upd:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 公告ID
+        in: formData
+        name: Notice_id
+        required: true
+        type: string
+      - description: 公告名称
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新公告
+      tags:
+      - Notice
+  /place/add:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 投放地点名称
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 新增投放地点
+      tags:
+      - Place
+  /place/del:
+    delete:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 投放地点ID
+        in: formData
+        name: place_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除投放地点
+      tags:
+      - Place
+  /place/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 投放地点ID
+        in: query
+        name: Place_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取投放地点
+      tags:
+      - Place
+  /place/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取投放地点列表
+      tags:
+      - Place
+  /place/upd:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 投放地点ID
+        in: formData
+        name: Place_id
+        required: true
+        type: string
+      - description: 投放地点名称
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新投放地点
+      tags:
+      - Place
+  /room/add:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 房间名称
+        in: formData
+        name: room_name
+        required: true
+        type: string
+      - description: 设备ID
+        in: formData
+        name: device_id
+        required: true
+        type: string
+      - description: 房间图片URl
+        in: formData
+        name: thumbnail
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 新增房间
+      tags:
+      - Room
+  /room/del:
+    delete:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 房间ID
+        in: formData
+        name: room_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除房间
+      tags:
+      - Room
+  /room/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 房间ID
+        in: query
+        name: room_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取房间
+      tags:
+      - Room
+  /room/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取房间列表
+      tags:
+      - Room
+  /room/upd:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 房间ID
+        in: formData
+        name: room_id
+        required: true
+        type: string
+      - description: 房间名称
+        in: formData
+        name: room_name
+        required: true
+        type: string
+      - description: 设备ID
+        in: formData
+        name: device_id
+        required: true
+        type: string
+      - description: 房间图片URl
+        in: formData
+        name: thumbnail
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新房间
+      tags:
+      - Room
+  /settle/apply/withdraw:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 账号
+        in: formData
+        name: account
+        required: true
+        type: string
+      - description: 账号名称
+        in: formData
+        name: account_name
+        required: true
+        type: string
+      - description: 所属银行
+        in: formData
+        name: bank
+        required: true
+        type: string
+      - description: 所属支行
+        in: formData
+        name: sub_bank
+        required: true
+        type: string
+      - description: 分润数据
+        in: formData
+        name: benefit_data
+        required: true
+        type: string
+      - description: 发票
+        in: formData
+        name: invoice
+        required: true
+        type: string
+      - description: 提现金额
+        in: formData
+        name: amount
+        required: true
+        type: string
+      - description: 快递公司
+        in: formData
+        name: express_company
+        required: true
+        type: string
+      - description: 快递单号
+        in: formData
+        name: express_no
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 申请提现
+      tags:
+      - Settle
+  /settle/apply/withdraw/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取申请提现记录列表
+      tags:
+      - Settle
+  /settle/current/month/detail:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取当前月结算详情
+      tags:
+      - Settle
+  /settle/month/detail/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      - description: 时间范围
+        in: query
+        name: time
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取月结算详情列表
+      tags:
+      - Settle
+  /settle/user/integral/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      - description: 时间范围
+        in: query
+        name: time
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取用户积分兑换记录列表
+      tags:
+      - Settle
+  /settle/user/recharge/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      - description: 时间范围
+        in: query
+        name: time
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取用户充值记录列表
+      tags:
+      - Settle
+  /staff/add:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 职工账号
+        in: formData
+        name: login_token
+        required: true
+        type: string
+      - description: 职工名称
+        in: formData
+        name: staff_name
+        required: true
+        type: string
+      - description: 职工密码
+        in: formData
+        name: password
+        required: true
+        type: string
+      - description: 职工角色ID
+        in: formData
+        name: role_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 新增职工
+      tags:
+      - Staff
+  /staff/del:
+    delete:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 职工ID
+        in: formData
+        name: staff_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除职工
+      tags:
+      - Staff
+  /staff/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 职工ID
+        in: query
+        name: staff_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取职工
+      tags:
+      - Staff
+  /staff/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取职工列表
+      tags:
+      - Staff
+  /staff/pwd:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 职工ID
+        in: formData
+        name: staff_id
+        required: true
+        type: string
+      - description: 新密码
+        in: formData
+        name: new_password
+        required: true
+        type: string
+      - description: 原密码
+        in: formData
+        name: old_password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新职工密码
+      tags:
+      - Staff
+  /staff/upd:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 职工ID
+        in: formData
+        name: staff_id
+        required: true
+        type: string
+      - description: 职工账号
+        in: formData
+        name: login_token
+        required: true
+        type: string
+      - description: 职工名称
+        in: formData
+        name: staff_name
+        required: true
+        type: string
+      - description: 职工角色ID
+        in: formData
+        name: role_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 更新职工
+      tags:
+      - Staff
+  /suggest/info:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 意见ID
+        in: query
+        name: suggest_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取意见
+      tags:
+      - Suggest
+  /suggest/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取意见列表
+      tags:
+      - Suggest
+  /suggest/reply:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 意见ID
+        in: formData
+        name: suggest_id
+        required: true
+        type: string
+      - description: 意见回复
+        in: formData
+        name: reply
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 意见回复
+      tags:
+      - Suggest
+  /test/info:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Test
+        in: formData
+        name: test
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 测试专用
+      tags:
+      - test
+  /upload/file:
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 文件
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 上传文件
+      tags:
+      - Upload
+  /upload/img:
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 图片
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 上传图片
+      tags:
+      - Upload
+  /win/cash:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 游戏记录ID
+        in: formData
+        name: play_id
+        required: true
+        type: string
+      - description: 1|核销
+        in: formData
+        name: cash_status
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 核销奖品
+      tags:
+      - Win
+  /win/express/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      - description: 发货状态 0|全部 1|已发货 2|未发货
+        in: query
+        name: send_status
+        required: true
+        type: string
+      - description: 用户ID 0|全部
+        in: query
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取快递发货列表
+      tags:
+      - Win
+  /win/offline/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      - description: 核销状态 0|全部 1|已核销 2|未核销
+        in: query
+        name: cash_status
+        required: true
+        type: string
+      - description: 用户ID 0|全部
+        in: query
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取线下中奖列表
+      tags:
+      - Win
+  /win/online/list:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      - description: 核销状态 0|全部 1|已核销 2|未核销
+        in: query
+        name: cash_status
+        required: true
+        type: string
+      - description: 用户ID 0|全部
+        in: query
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取线上中奖列表
+      tags:
+      - Win
+  /win/send:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 兑奖记录ID
+        in: formData
+        name: record_id
+        required: true
+        type: string
+      - description: 快递公司名称
+        in: formData
+        name: express_company
+        required: true
+        type: string
+      - description: 快递单号
+        in: formData
+        name: express_no
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 快递奖品
+      tags:
+      - Win
+swagger: "2.0"

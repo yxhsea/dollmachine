@@ -1,0 +1,584 @@
+basePath: /dev/usr/v1
+host: 192.168.0.167:9554
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: 用户模块 Api文档
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: 用户模块 Api文档
+  version: "1.0"
+paths:
+  /address/add:
+    post:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 地址ID
+        in: formData
+        name: address_id
+        type: integer
+      - description: 姓名
+        in: formData
+        name: full_name
+        required: true
+        type: string
+      - description: 手机号
+        in: formData
+        name: phone
+        required: true
+        type: integer
+      - description: 省份
+        in: formData
+        name: province
+        required: true
+        type: string
+      - description: 城市
+        in: formData
+        name: city
+        required: true
+        type: string
+      - description: 地区
+        in: formData
+        name: district
+        required: true
+        type: string
+      - description: 详细地址
+        in: formData
+        name: address
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 添加地址
+      tags:
+      - address
+  /address/info:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 地址ID
+        in: query
+        name: address_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取地址信息
+      tags:
+      - address
+  /award/list:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取中奖记录列表
+      tags:
+      - award
+  /flow/list:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取流水列表
+      tags:
+      - flow
+  /game/list:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取游戏记录列表
+      tags:
+      - game
+  /login/auth:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - description: 用户ID
+        in: formData
+        name: user_id
+        required: true
+        type: string
+      - description: 商户ID
+        in: formData
+        name: merchant_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 登录授权
+      tags:
+      - login
+  /notice/info:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 公告ID
+        in: query
+        name: notice_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取公告信息
+      tags:
+      - notice
+  /notice/list:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取公告列表
+      tags:
+      - notice
+  /pay/express/create:
+    post:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 兑换记录ID
+        in: formData
+        name: record_id
+        required: true
+        type: string
+      - description: 金额
+        in: formData
+        name: amount
+        required: true
+        type: string
+      - description: 交易类型 1|公众号 2|扫码
+        in: formData
+        name: trade_type
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 创建邮费订单
+      tags:
+      - pay
+  /pay/express/query:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 交易ID
+        in: query
+        name: recharge_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 邮费结果查询
+      tags:
+      - pay
+  /pay/recharge/create:
+    post:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 商户ID
+        in: formData
+        name: merchant_id
+        required: true
+        type: string
+      - description: 设备ID
+        in: formData
+        name: device_id
+        required: true
+        type: string
+      - description: 金额
+        in: formData
+        name: amount
+        required: true
+        type: string
+      - description: 交易类型 1|公众号 2|扫码
+        in: formData
+        name: trade_type
+        required: true
+        type: integer
+      - description: 标签
+        in: formData
+        name: from_tag
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 创建充值订单
+      tags:
+      - pay
+  /pay/recharge/query:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 交易ID
+        in: query
+        name: recharge_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 充值结果查询
+      tags:
+      - pay
+  /room/award:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 房间ID
+        in: query
+        name: room_id
+        required: true
+        type: string
+      - description: 查询多少条数据
+        in: query
+        name: limit
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取房间中奖列表
+      tags:
+      - room
+  /room/info:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 房间ID
+        in: query
+        name: room_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取房间信息
+      tags:
+      - room
+  /room/list:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取房间列表
+      tags:
+      - room
+  /suggest/add:
+    post:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 反馈内容
+        in: formData
+        name: content
+        required: true
+        type: string
+      - description: 反馈类型 1|建议 2|投诉 3|其他
+        in: formData
+        name: type
+        required: true
+        type: integer
+      - description: 联系电话
+        in: formData
+        name: contact_tel
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 添加意见
+      tags:
+      - suggest
+  /suggest/list:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: 偏移量
+        in: query
+        name: offset
+        required: true
+        type: string
+      - description: 总条数
+        in: query
+        name: total_size
+        required: true
+        type: string
+      - description: 一页多少条数据
+        in: query
+        name: page_size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取意见、投诉、列表
+      tags:
+      - suggest
+  /test/info:
+    get:
+      parameters:
+      - description: Token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: Test
+        in: query
+        name: test
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 测试专用
+      tags:
+      - test
+  /user/info:
+    get:
+      parameters:
+      - description: Token令牌
+        in: header
+        name: Token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":"","msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取用户信息
+      tags:
+      - user
+swagger: "2.0"

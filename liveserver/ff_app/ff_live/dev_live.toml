@@ -1,0 +1,28 @@
+#直播推流
+#title = "Dev LiveServer Toml"
+
+[logger]
+enable = true
+env = "dev"
+level = "debug"
+filepath = "/var/www/go/src/dollmachine/liveserver/ff_log/liveServer"
+maxdays = 30
+maxlines = 1000000
+maxsize = 1073741824 #1<<30
+
+[mail]
+enable = false
+host = "smtp.exmail.qq.com"
+port = "25"
+from_user = "yangxh@arcadetalent.com"
+password = ""
+to_user = "yangxh@arcadetalent.com"
+
+[rest]
+mode = "dev"
+host = ":9222"
+timeout = 30
+
+[live]
+read_buffer = 1024
+write_buffer = 1024
