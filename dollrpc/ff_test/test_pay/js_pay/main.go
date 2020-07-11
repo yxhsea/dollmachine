@@ -40,10 +40,10 @@ func main() {
 		CreatedAt:  nowTime,
 
 		OpenId:    "",
-		SubAppId:  "wxc7d98f96c6bb4a79",
-		SubOpenId: "ocuGf0igqRAhgDocsuhgxJgXTw2w",
+		SubAppId:  "",
+		SubOpenId: "",
 
-		NotifyUrl: "https://wawafront.tunnel.aioil.cn/ks/v1/oauth/recharge/notify",
+		NotifyUrl: "https://www.test.cn/ks/v1/oauth/recharge/notify",
 	}
 
 	var reply interface{}
@@ -53,5 +53,4 @@ func main() {
 	}
 	replyStr, _ := json.Marshal(reply)
 	fmt.Println(string(replyStr))
-	//{"action":"WxCreatePay","channel":"wechatpay_jspay_fy","credential":"{\"appid\":\"wx0781c1dea664cd9a\",\"nonce_str\":\"1526538581282\",\"package\":\"prepay_id=wx17142941236747ad13dc50ff3793574533\",\"pay_sign\":\"4352679D376CE48D9496438D005B6FA8\",\"sign_type\":\"MD5\",\"timestamp\":\"1526538581282\"}","recharge_id":1142000001526538600}
 }

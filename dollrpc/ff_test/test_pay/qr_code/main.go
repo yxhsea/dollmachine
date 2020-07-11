@@ -43,7 +43,7 @@ func main() {
 		SubOpenId: "",
 		SubAppId:  "",
 
-		NotifyUrl: "https://wawafront.tunnel.aioil.cn/ks/v1/oauth/recharge/notify",
+		NotifyUrl: "https://www.test.cn/ks/v1/oauth/recharge/notify",
 	}
 
 	var reply interface{}
@@ -52,5 +52,5 @@ func main() {
 		log.Fatal("arith error:", err)
 	}
 	replyStr, _ := json.Marshal(reply)
-	fmt.Println(string(replyStr)) //{"action":"QRCode","channel":"wechatpay_qr_fy","credential":"weixin://wxpay/bizpayurl?pr=i4NigN9","recharge_id":1142000001526537700}
+	fmt.Println(string(replyStr))
 }
