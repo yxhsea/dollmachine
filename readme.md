@@ -1,4 +1,4 @@
-## 在线直播抓娃娃项目
+## 基于 GoLang 编写的 IOT 物联网在线直播抓娃娃企业级项目
 
 ### 项目介绍
 
@@ -26,38 +26,43 @@
 
 ### 服务介绍
 
-#### DollBarrage
+- DollBarrage
 
 通过 WebSocket 协议实现娃娃机弹幕服务，主要提供：游戏房间内评论弹幕的即时交互的功能。
 
-#### DollMerchant
+- DollMerchant
 
 基于 Gin 框架提供娃娃机商户平台 Restful Api 服务，可支持自动生成 Swagger Api 文档。
 
-#### DollMqtt
+- DollMqtt
 
 服务端通过 Mqtt 协议与娃娃机设备进行通信，从而控制娃娃机设备爪子的行为动作。
 
-#### DollPlatform
+- DollPlatform
 
 基于 Gin 框架提供娃娃机运营平台 Restful Api 服务，可支持自动生成 Swagger Api 文档。
 
-#### DollRpc
+- DollRpc
 
 Rpc 服务，主要提供了富友支付（微信支付）的功能。
 
-#### DollUnique
+- DollUnique
 
 主要提供了生成唯一 ID 的功能。
 
-#### DollUser
+- DollUser
 
 基于 Gin 框架提供微信用户端的 Restful Api 服务，可支持自动生成 Swagger Api 文档。
 
-#### DollWechat
+- DollWechat
 
 主要提供微信菜单配置、微信授权登录、微信扫码登录并关注公众的功能。
 
-#### LiveServer
+- LiveServer
 
 主要为娃娃机直播设备与微信用户端 H5 页面进行直播推流的一个中间服务。
+
+
+### 结尾
+
+本项目为企业级项目，仅供参考学习，目前数据库文件已经遗失。
