@@ -2,7 +2,7 @@
 
 ### 架构图
 
-[](./architecture.png)
+[](https://images.cnblogs.com/cnblogs_com/yxhblogs/1804179/o_200711075922dollmachine.png)
 
 ### 项目服务介绍
 
